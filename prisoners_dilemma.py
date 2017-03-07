@@ -6,13 +6,17 @@ for the Iterative Prisoners Dilemma, the canonical game of game-theory.
 Each strategy plays 100 to 200 rounds against each other strategy.
 The results of all previous rounds within a 100-200 round stretch are known
 to both players. 
+
 play_tournament() executes the tournament and stores output in tournament.txt
+
 Players should each code their strategies in their assigned section of code.
+
 Aggregated results are stored in tournament.txt
+
 Unpublished work (c)2013 Project Lead The Way
 CSE Project 1.3.5 Collaborating on a Project
 Draft, Do Not Distribute
-Version 8/23/2013 
+Version 3/6/2017 
 '''
 
 import random
@@ -222,7 +226,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 5:
         if getting_team_name:
-            return 'betrayer'
+            return 'bretrayer'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
@@ -720,3 +724,4 @@ def play_tournament(num_players):
         print('player ' + str(player) , ': ' , 
                str(int(scores[player])/num_players) , ' points: ',
                team_names[player])
+    
