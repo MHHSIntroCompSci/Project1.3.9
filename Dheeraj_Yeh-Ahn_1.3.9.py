@@ -6,17 +6,13 @@ for the Iterative Prisoners Dilemma, the canonical game of game-theory.
 Each strategy plays 100 to 200 rounds against each other strategy.
 The results of all previous rounds within a 100-200 round stretch are known
 to both players. 
-
 play_tournament() executes the tournament and stores output in tournament.txt
-
 Players should each code their strategies in their assigned section of code.
-
 Aggregated results are stored in tournament.txt
-
 Unpublished work (c)2013 Project Lead The Way
 CSE Project 1.3.5 Collaborating on a Project
 Draft, Do Not Distribute
-Version 3/6/2017 
+Version 8/23/2013 
 '''
 
 import random
@@ -209,7 +205,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             if(size%3==0): #the number of rounds played is a multiple of 3
                 return 'c'
             else:
-                return 'b'           
+                return 'b'
     
     
     
@@ -226,13 +222,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 5:
         if getting_team_name:
-            return 'bretrayer'
-
+            return 'backstabber'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
-                return 'c'
+                return 'b'
             elif history[-1]=='b' and opponent_history[-1]=='b':
                 return 'b' # betray is they were severely punished last time
             else:
@@ -251,17 +246,16 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 6:
         if getting_team_name:
-            return 'It Can Be Anything'
+            return 'loyal vengeful'
         else:
-            if opponent_history[0:3]=='winning':
-                return 'c'
-            elif len(opponent_history)==0
-                return 'winning' 
-            elif opponent_history[0:3] == 'bbbbbbb' :
-                return 5
+            # use history, opponent_history, score, opponent_score
+            # to compute your strategy
+            if len(opponent_history)==0: #It's the first round: collude
+                return 'bc'
+            elif history[-1]=='c' and opponent_history[-1]=='b':
+                return 'b' # betray is they were severely punished last time
             else:
-                return 'b' 
-            
+                return 'c' #otherwise collude
     
 
 
@@ -278,14 +272,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 7:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'loyal'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were sucker last time
+            elif history[-1]=='c' and opponent_history[-1]=='c':
+                return 'c' # betray is they were sucker last time
             else:
                 return 'c' #otherwise collude
 
