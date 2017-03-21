@@ -231,7 +231,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
-                return 'b'
+                return 'c'
             elif history[-1]=='c' and opponent_history[-1]=='b':
                 return 'b' # betray is they were severely punished last time
             else:
@@ -256,7 +256,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'b'
-            elif history[-1]=='c' and opponent_history[-1]=='b':
+            elif history[-1]=='b' and opponent_history[-1]=='b':
                 return 'b' # betray is they were severely punished last time
             else:
                 return 'b' #otherwise collude
@@ -281,11 +281,11 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
-                return 'b'
-            elif history[-1]=='b' and opponent_history[-1]=='c':
-                return 'c' # betray is they were sucker last time
+                return 'c'
+            elif history[-1]=='c' and opponent_history[-1]=='b':
+                return 'b' # betray is they were sucker last time
             else:
-                return 'b' #otherwise collude
+                return 'c' #otherwise collude
 
 
 
